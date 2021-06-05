@@ -14,6 +14,7 @@ import kodlamaio.hrms.core.utilities.results.SuccessDataResult;
 import kodlamaio.hrms.core.utilities.results.SuccessResult;
 import kodlamaio.hrms.dataAccess.abstracts.JobAdvertisementDao;
 import kodlamaio.hrms.entities.concretes.JobAdvertisement;
+import kodlamaio.hrms.entities.dtos.JobAdvertisementWithEmployerJobTitleDto;
 
 @Service
 public class JobAdvertisementManager implements JobAdvertisementService {
@@ -52,6 +53,18 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 		jobAdvertisementDao.save(jobAdvertisementDao.findById(jobAdvertisementId).get());
 
 		return new SuccessResult("jobAdvertisement isActive updated");
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementWithEmployerJobTitleDto>> getJobAdvertisementWithEmployerJobTitleDetails(boolean active) {
+		return new SuccessDataResult<List<JobAdvertisementWithEmployerJobTitleDto>>(jobAdvertisementDao.getJobAdvertisementWithEmployerJobTitleDetails(active));
+
+	}
+
+	@Override
+	public DataResult<List<JobAdvertisementWithEmployerJobTitleDto>> getJobAdvertisementWithEmployerJobTitleDetailsOrderByDate(boolean active){
+			return new SuccessDataResult<List<JobAdvertisementWithEmployerJobTitleDto>>(jobAdvertisementDao.getJobAdvertisementWithEmployerJobTitleDetailsOrderByDate(active));
+
 	}
 
 }
