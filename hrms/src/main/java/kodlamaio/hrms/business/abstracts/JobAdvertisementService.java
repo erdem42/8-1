@@ -19,6 +19,7 @@ public interface JobAdvertisementService {
 	DataResult<List<JobAdvertisement>> getAllByActiveTrueAndEmployer_Id(int id);
 	Result updateJobAdvertisementIsActive(int jobAdvertisementId,boolean isActive);
 	*/
+	
 	//mapper
 	
 
