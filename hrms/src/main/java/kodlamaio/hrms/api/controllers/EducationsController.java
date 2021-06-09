@@ -13,6 +13,7 @@ import kodlamaio.hrms.business.abstracts.EducationService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.Education;
+import kodlamaio.hrms.entities.dtos.EducationDto;
 
 @RestController
 @RequestMapping("/api/educations")
@@ -22,13 +23,13 @@ public class EducationsController {
 
 
 	@GetMapping("/getAll")
-	public DataResult<List<Education>> getAll(){
+	public DataResult<List<EducationDto>> getAll(){
 		return educationService.getAll();
 	}
 
 	@PostMapping("/add")
-	public Result add(@RequestBody Education education) {
-		return educationService.add(education);
+	public Result add(@RequestBody EducationDto educationDto) {
+		return educationService.add(educationDto);
 	}
 
 }
