@@ -16,6 +16,7 @@ import kodlamaio.hrms.business.abstracts.ResumeService;
 import kodlamaio.hrms.core.utilities.results.DataResult;
 import kodlamaio.hrms.core.utilities.results.Result;
 import kodlamaio.hrms.entities.concretes.Resume;
+import kodlamaio.hrms.entities.dtos.ResumeDto;
 
 @RestController
 @RequestMapping("/api/resumes")
@@ -27,12 +28,12 @@ public class ResumesController {
 	
 	
 	@PostMapping("/add")
-	public Result add(@RequestBody Resume resume) {
-		return resumeService.add(resume);
+	public Result add(@RequestBody ResumeDto resumeDto) {
+		return resumeService.add(resumeDto);
 	}
 	
 	@GetMapping("/getAll")
-	public DataResult<List<Resume>> getAll(){
+	public DataResult<List<ResumeDto>> getAll(){
 		return resumeService.getAll();
 	}
 	
